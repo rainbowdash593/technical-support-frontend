@@ -1,0 +1,14 @@
+.no-match-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.no-match {
+    text-align: center;
+    display: block;
+}
+.no-match__header {
+    font-size: 90px;
+    padding: 20px;
+}

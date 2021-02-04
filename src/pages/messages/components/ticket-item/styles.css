@@ -1,0 +1,42 @@
+.ticket-item {
+    font-size: 12px;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    transition: background var(--speed);
+    padding: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+.ticket-item--active {
+    background: var(--secondary-color);
+    color: #ffffff;
+}
+
+.ticket-item__avatar {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 15px;
+}
+
+.ticket-item__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-item:hover {
+    background-color: #ABABAB;
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+.ticket-item .icon-right {
+    margin-left: auto;
+}
+
+.ticket-item__email {
+    font-size: 14px;
+}
