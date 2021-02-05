@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { HttpClient } from "../common/utils/axios";
 
 class CommonStore {
   appName = "";
@@ -11,9 +12,13 @@ class CommonStore {
 
   setToken(token) {
     this.token = token;
-    token
-      ? localStorage.setItem("jwtToken", token)
-      : localStorage.removeItem("jwtToken");
+    if (token) {
+      HttpClient.defaults.headers.common.Authorization = `Bearer ${token}`;
+      localStorage.setItem("jwtToken", token);
+    } else {
+      HttpClient.defaults.headers.common.Authorization = "";
+      localStorage.removeItem("jwtToken");
+    }
   }
 
   setAppLoaded() {

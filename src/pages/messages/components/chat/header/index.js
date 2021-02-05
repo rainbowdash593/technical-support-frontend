@@ -1,7 +1,10 @@
+import React, { useState } from "react";
 import { FaUserCircle, IoOptions } from "react-icons/all";
 import { Button, Tag, TagGroup } from "rsuite";
+import { ChatDrawer } from "../drawer";
 
-export function ChatHeader({ ticket }) {
+export function ChatHeader({ isReadOnly, ticket }) {
+  const [isDrawerOpened, toggleDrawer] = useState(false);
   return (
     <div className="chat__header">
       <div>
@@ -14,10 +17,16 @@ export function ChatHeader({ ticket }) {
         </TagGroup>
       </div>
       <div className="chat__options-button">
-        <Button appearance="ghost">
+        <Button appearance="ghost" onClick={() => toggleDrawer(true)}>
           <IoOptions icon="linkedin" /> Настройки
         </Button>
       </div>
+      <ChatDrawer
+        isReadOnly={isReadOnly}
+        ticket={ticket}
+        isOpen={isDrawerOpened}
+        close={() => toggleDrawer(false)}
+      />
     </div>
   );
 }

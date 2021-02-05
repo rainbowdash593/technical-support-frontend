@@ -1,0 +1,26 @@
+.tag-group {
+    margin-top: 15px;
+}
+.tag-group .rs-tag-group {
+    margin: 0!important;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag-group input {
+    margin-left: 10px;
+}
+
+.tag-group .rs-tag-group > .rs-tag {
+    margin: 0 !important;
+}
+
+.tag-group .tag-add {
+    margin-left: 10px;
+    padding: 2px 10px;
+}
+
+.save-tags {
+    margin-top: 20px;
+    text-align: right;
+}

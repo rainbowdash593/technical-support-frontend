@@ -14,6 +14,11 @@ export const routes = [
     public: true,
   },
   {
+    path: "/history/:id",
+    component: React.lazy(() => import("./history/view/MessageHistoryPage")),
+    public: true,
+  },
+  {
     path: "/sign-in",
     component: React.lazy(() => import("./auth/views/SingInPage")),
     public: true,
@@ -30,7 +35,11 @@ export const routes = [
       },
     ],
   },
-
+  {
+    path: "/404",
+    component: React.lazy(() => import("./static/pages/no-match")),
+    public: true,
+  },
   {
     path: "*",
     component: React.lazy(() => import("./static/pages/no-match")),

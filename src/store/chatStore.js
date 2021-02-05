@@ -11,6 +11,12 @@ class ChatStore {
     makeAutoObservable(this);
   }
 
+  newMessage(message) {
+    if (this._messages.hasOwnProperty(message.ticket)) {
+      this._messages[message.ticket].push(message);
+    }
+  }
+
   fetchMessageHistory(ticketId) {
     this.isLoading = true;
     return new Promise((resolve, reject) => {
@@ -28,8 +34,8 @@ class ChatStore {
     this.ticket = ticket;
     if (!this._messages.hasOwnProperty(ticket._id)) {
       this._messages[ticket._id] = [];
-      this.fetchMessageHistory(ticket._id);
-    }
+      return this.fetchMessageHistory(ticket._id);
+    } else Promise.resolve();
   }
 
   isActive(ticket) {
@@ -51,6 +57,7 @@ class ChatStore {
         .then(({ data }) => {
           this.appendMessage(ticket, data);
           ticketsStore.updateLastMessage(ticket, data);
+          ticketsStore.updateByProjectMessage(ticket, data);
           resolve(data);
         })
         .catch(() => reject())

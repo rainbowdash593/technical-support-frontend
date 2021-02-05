@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Form, FormControl, FormGroup, IconButton, Schema } from "rsuite";
 import { FiSend } from "react-icons/all";
 
-export function ChatFooter({ onSend }) {
+export function ChatFooter({ isReadOnly, onSend }) {
   const form = useRef();
   const [message, setMessage] = useState();
   const model = Schema.Model({
@@ -16,7 +16,9 @@ export function ChatFooter({ onSend }) {
       setMessage("");
     }
   }
-  return (
+  return isReadOnly ? (
+    ""
+  ) : (
     <div className="chat__message">
       <Form
         fluid

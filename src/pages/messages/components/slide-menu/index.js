@@ -1,15 +1,10 @@
 import React from "react";
-import { CSSTransition } from "react-transition-group";
 import "./styles.css";
 
-function Menu({ children, ...rest }) {
+function Menu({ children }) {
   return (
-    <div style={{ overflow: "hidden" }}>
-      <CSSTransition {...rest} timeout={500} unmountOnExit>
-        <div>
-          <div className="menu">{children}</div>
-        </div>
-      </CSSTransition>
+    <div>
+      <div className="menu">{children}</div>
     </div>
   );
 }
